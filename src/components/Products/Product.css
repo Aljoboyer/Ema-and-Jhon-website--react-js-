@@ -1,0 +1,20 @@
+.product-container{
+    display: flex;
+    justify-content: space-evenly;
+}
+.purchase-btn{
+    font-weight: 700;
+    background-color: goldenrod;
+    width: 250px;
+    height: 30px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.fa-star{
+    color: goldenrod;
+}
+.star-and-feature{
+    display: flex;
+    justify-content: space-evenly;
+}
