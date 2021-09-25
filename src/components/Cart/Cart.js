@@ -15,7 +15,7 @@ const Cart = (props) => {
             }
             Quantity = Quantity + product.quantity
             itemtotal =itemtotal +  product.price  * product.quantity;
-            // ShippingCost = ShippingCost + product.shipping * Quantity
+            ShippingCost = ShippingCost + product.shipping * product.quantity
             total = itemtotal;
             
         }
