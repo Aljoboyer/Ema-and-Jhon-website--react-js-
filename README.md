@@ -1,1 +1,2 @@
-This is duplucate of EMA and JHON website 
+This is duplucate of EMA and
+  .abdk
