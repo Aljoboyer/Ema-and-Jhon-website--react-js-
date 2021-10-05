@@ -5,50 +5,23 @@ import Cart from '../Cart/Cart';
 import {AddedProduct,Getproduct} from '../Localstorages/Added';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import useProducts from '../Hooks/useProducts';
+import useCart from '../Hooks/useCart';
+import { Link } from 'react-router-dom';
 const Shop = () => {
-    const [products, setProducts] = useState([]);
-    const [cart, setCart] = useState([]);
-    const [filterProducts, setFilterproducts] = useState([]);
-    useEffect(() => {
-        fetch('./products.JSON')
-        .then(res => res.json())
-        .then(data => {
-            setProducts(data)
-            setFilterproducts(data)
-        })
-    },[])
+    const [products, setProducts] = useProducts();
+    const [cart, setCart] = useCart(products);
+    const [filterProducts, setFilterproducts] = useProducts();
 
-    useEffect(() => {
-        const localStorageProduct = Getproduct();
-        const productArry = []
-            if(localStorageProduct)
-            {
-                for(let key in localStorageProduct)
-                {
-                    const newProduct = products.find(product => product.key === key)
-                   if(newProduct)
-                   {
-                        const Quantity = localStorageProduct[key]
-                        newProduct.quantity  = Quantity
-                        productArry.push(newProduct)
-                   }
-                }
-                setCart(productArry)
-            }
-    },[products])
     const AddingCart = (product) => {
         setCart([...cart, product])
         // adding product to localStorage
         AddedProduct(product.key)
     }
     const SearchHandler = (event) => {
-   
-
         const searchtext = event.target.value;
         const FilterProduct = products.filter(product => product.name.toLowerCase().includes(searchtext.toLowerCase()));
         setFilterproducts(FilterProduct)
-    
-
     }
     const element = <FontAwesomeIcon icon={faShoppingCart} />
     return (
@@ -70,7 +43,11 @@ const Shop = () => {
             </div>
             <div className="cart">
                 <h1>Ordered Summary</h1>
-                <Cart cartproduct={cart}></Cart>
+                <Cart cartproduct={cart}>
+                    <Link to="/orderreview">
+                        <button className="review-btn">Review Order</button>
+                    </Link>
+                </Cart>
             </div>
         </div>
         </div>

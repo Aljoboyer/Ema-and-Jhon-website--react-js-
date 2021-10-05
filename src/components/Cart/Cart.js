@@ -26,7 +26,7 @@ const Cart = (props) => {
             <p><b>Shipping and Handling : {parseFloat(ShippingCost).toFixed(2)}</b></p>
             <p><b>Total before tax : </b></p>
             <h2 className="total"><b>Order Total : {parseFloat(total.toFixed(2))}</b></h2>
-            <Link to="/addreview"><button className="review-btn">Review Product</button></Link>
+            {props.children}
         </div>
     );
 };
