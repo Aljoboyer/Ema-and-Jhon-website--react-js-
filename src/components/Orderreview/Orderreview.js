@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Offcanvas } from 'react-bootstrap';
 import { Link,useHistory } from 'react-router-dom';
 import Cart from '../Cart/Cart';
 import useCart from '../Hooks/useCart';
@@ -16,22 +17,25 @@ const Orderreview = () => {
     }
     const History = useHistory();
     const HandlePlaceOrder = () => {
-        clearTheCart()
-        setCart([])
-        History.push('/placeorder');
+        History.push('/shipping');
     }
     return (
-        <div className="shop-container">
-            <div className="shop">
-                <h1>This is Order reviw page</h1>
-                {
-                    cart.map(product => <Orderproduct key={product.key} RemoveHandler={RemoveHandler} product={product} ></Orderproduct>)
-                }
-            </div>
-            <div className="cart">
-                <Cart  cartproduct={cart} >
-                        <button onClick={HandlePlaceOrder} className="review-btn">Place Order</button>
-                </Cart>
+        <div className="container-fluid">
+            <div className="row mx-auto mt-4">
+                  
+                <div className="mt-4 col-lg-4 col-md-12">
+                    <Cart  cartproduct={cart} >
+                            <button onClick={HandlePlaceOrder} className="review-btn">Place Order</button>
+                    </Cart>     
+                </div>
+                <div className="col-lg-8 col-md-12">
+                <h1 className="text-center  mt-4">Your Ordered Items</h1>
+                    <div className="row mx-auto">
+                        {
+                        cart.map(product => <Orderproduct key={product.key} RemoveHandler={RemoveHandler} product={product} ></Orderproduct>)
+                        }
+                    </div>
+                </div>
             </div>
         </div>
     );

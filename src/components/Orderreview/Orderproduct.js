@@ -4,7 +4,7 @@ import React from 'react';
 const Orderproduct = (props) => {
     const {name,price,img,quantity,key}  = props.product
     return (
-        <div className="product-container">
+    <div className="col-lg-6 col-md-12 col-sm-12">
         <div className="img-div">
             <img src={img} alt="" />
         </div>

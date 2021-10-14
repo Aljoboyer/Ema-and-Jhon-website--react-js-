@@ -19,6 +19,7 @@ const Cart = (props) => {
             total = itemtotal;
             
         }
+
     return (
         <div className="cart">
             <h3>Items Ordered : {Quantity}</h3>

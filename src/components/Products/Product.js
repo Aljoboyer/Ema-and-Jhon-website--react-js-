@@ -8,15 +8,15 @@ const Product = (props) => {
     const {name, price, img, stock,star,features} = props.product
     const element = <FontAwesomeIcon icon={faShoppingCart} />
     return (
-        <div className="product-container">
-            <div className="img-div">
-                <img src={img} alt="" />
+        <div className="product col-lg-5 col-md-12 col-sm-12 product">
+            <div className="text-center mb-2 ">
+                <img className="img-fluid rounded" src={img} alt="" />
             </div>
-            <div className="product">
-                <h3>{name}</h3>
+            <div className="ms-2">
+                <h4>{name}</h4>
                 <h5><b>{price}</b></h5>
                 <p><b>only {stock} left in stock - order soon</b></p>
-                <div className="star-and-feature">
+                <div className="d-flex justify-content-evenly mb-1">
                     <div >
                         <Rating   
                             initialRating={star}

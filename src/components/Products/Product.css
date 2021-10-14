@@ -1,6 +1,6 @@
-.product-container{
-    display: flex;
-    justify-content: space-evenly;
+.product{
+
+    border-right: 1px rgb(0, 0, 0) solid;
 }
 .purchase-btn{
     font-weight: 700;
@@ -13,8 +13,4 @@
 }
 .fa-star{
     color: goldenrod;
-}
-.star-and-feature{
-    display: flex;
-    justify-content: space-evenly;
 }
